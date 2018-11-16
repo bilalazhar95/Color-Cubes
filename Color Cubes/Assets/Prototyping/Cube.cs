@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Cube : MonoBehaviour
+public class Cube : MonoBehaviour,IShootable
 {
     Rigidbody rigidbody=null;
 
@@ -28,6 +28,12 @@ public class Cube : MonoBehaviour
     {
 		
 	}
+
+    public void TakeShot(Vector3 force)
+    {
+        print(gameObject.name + " has been shot");
+        rigidbody.AddForce(force,ForceMode.Impulse);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
