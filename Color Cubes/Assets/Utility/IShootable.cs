@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IShootable
 {
-    void TakeShot(Vector3 force);
+    void TakeShot(Vector3 direction);
 }

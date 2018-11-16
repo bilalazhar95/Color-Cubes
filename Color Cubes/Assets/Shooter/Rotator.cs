@@ -25,7 +25,7 @@ public class Rotator : MonoBehaviour
         // TODO take rotValue from swipes
 
         float rotValue = Input.GetAxis("Vertical");
-        transform.localRotation *= Quaternion.AngleAxis(rotValue * rotateSpeed * Time.deltaTime, Vector3.up);
+        thisTransform.localRotation *= Quaternion.AngleAxis(rotValue * rotateSpeed * Time.deltaTime, Vector3.up);
 
         
 		

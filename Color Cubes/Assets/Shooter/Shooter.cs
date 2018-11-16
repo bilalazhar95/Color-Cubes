@@ -7,6 +7,7 @@ public class Shooter : MonoBehaviour
     ShooterRaycaster shooterRaycaster = null;
 
     [SerializeField] private float shootForce=10f;
+    [SerializeField] private Vector3 explosionOffset = Vector3.zero;
 
 
     private void Awake()
@@ -27,10 +28,17 @@ public class Shooter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (shooterRaycaster.CurrentTarget==null)
+            {
+                print("no current target");
+                return;
+            }
+            
             IShootable shootable = shooterRaycaster.CurrentTarget.GetComponent<IShootable>();
             if (shootable!=null)
             {
-                shootable.TakeShot(transform.right * shootForce);
+                Vector3 direction = shooterRaycaster.CurrentTarget.transform.position - shooterRaycaster.shootPoint.position; 
+                shootable.TakeShot(direction * shootForce);
             }
             
         }
