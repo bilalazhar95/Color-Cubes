@@ -76,9 +76,9 @@ public class ShooterRaycaster : MonoBehaviour
         Gizmos.DrawWireSphere(shootPoint.position + shootPoint.transform.right * shootRadius, shootRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(shootPoint.position, shootPoint.right.normalized * shootRadius *2);
-        Vector3 projection = Vector3.Project(hitPosition,shootPoint.right.normalized);
+        Vector3 projection = Vector3.Project(hitPosition,shootPoint.right);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(projection,0.2f);
+        Gizmos.DrawWireSphere(hitPosition+projection,0.2f);
 
     }
 }
