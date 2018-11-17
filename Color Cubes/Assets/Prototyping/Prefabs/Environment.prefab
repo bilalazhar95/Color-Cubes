@@ -386,7 +386,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684368758593454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.8, y: -0.01, z: 2.07}
+  m_LocalPosition: {x: 10.89, y: -0.01, z: 2.07}
   m_LocalScale: {x: 23.4, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 4431946525770356}
@@ -1046,8 +1046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4449977980559490}
-  shootAngle: 45
-  shootRadius: 10
+  shootAngle: 50
+  shootRadius: 7.48
   shootAbleLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1074,9 +1074,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea302f86f777ee9439506df5b765daba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForce: 10
-  explosionRadius: 5
-  explosionOffset: {x: -0.5, y: 0, z: 0}
+  blastForce: 100
+  blastRadius: 0.37
+  explosionOffset: {x: 0, y: 0, z: 0}
+  blastForceMode: 1
 --- !u!124 &124549621458695638
 Behaviour:
   m_ObjectHideFlags: 1
