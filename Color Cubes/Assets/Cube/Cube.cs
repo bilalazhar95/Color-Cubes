@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour,IShootable
 {
-    public ForceMode forceMode = ForceMode.Force;
 
     Rigidbody rigidbody=null;
+   [SerializeField] private float upwardsModifier = 0.1f;
 
     private void Awake()
     {
@@ -27,10 +27,11 @@ public class Cube : MonoBehaviour,IShootable
 		
 	}
 
-    public void TakeShot(Vector3 direction)
+    public void TakeShot(float blastForce, Vector3 blastPosition, float blastRadius, ForceMode forceMode)
     {
         rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(direction,forceMode);
+        
+        rigidbody.AddExplosionForce(blastForce,blastPosition,blastRadius,upwardsModifier,forceMode);
         
     }
 
@@ -38,4 +39,6 @@ public class Cube : MonoBehaviour,IShootable
     { 
      
     }
+
+   
 }

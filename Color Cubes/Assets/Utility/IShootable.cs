@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IShootable
 {
-    void TakeShot(Vector3 direction);
+    void TakeShot(float blastForce, Vector3 blastPosition,float blastRadius,ForceMode forceMode);
 }

@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1166208881982526}
   m_LocalRotation: {x: 0, y: 0, z: 0.2840153, w: 0.95881975}
-  m_LocalPosition: {x: -4.56, y: 0.17, z: 0}
+  m_LocalPosition: {x: -3.2, y: 2.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,7 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61fce803df6efd42b827322b74284e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMode: 2
-  explosionForce: 0
-  explosionRadius: 3
-  blastOffset: {x: 0.1, y: -0.5, z: 0}
+  upwardsModifier: 0.1

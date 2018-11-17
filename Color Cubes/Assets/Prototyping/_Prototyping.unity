@@ -162,6 +162,41 @@ Prefab:
       propertyPath: shootAngle
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114078426630950486, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: currentTarget
+      value: 
+      objectReference: {fileID: 1625773216}
+    - target: {fileID: 114078426630950486, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: blastDistanceFromHitPoint
+      value: -2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078426630950486, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: shootRadius
+      value: 9.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078426630950486, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: shootDistance
+      value: 13.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: blastForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: explosionOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: blastRadius
+      value: 0.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a0c6fa54d9d73408b6e65037ebbc0f, type: 2}
   m_IsPrefabParent: 0
@@ -174,11 +209,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.45
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.z
@@ -204,11 +239,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114553227401925058, guid: 9b7e6dcff687f104fa5f90f881fec622,
-        type: 2}
-      propertyPath: forceMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1625773216 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1166208881982526, guid: 9b7e6dcff687f104fa5f90f881fec622,
+    type: 2}
+  m_PrefabInternal: {fileID: 1598970854}
