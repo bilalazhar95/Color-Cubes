@@ -1047,11 +1047,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4449977980559490}
-  shootAngle: 10
-  shootRadius: 7.48
   shootAbleLayer:
     serializedVersion: 2
     m_Bits: 256
+  shootAngle: 10
+  shootRadius: 7.48
+  thickness: 0.4
 --- !u!114 &114313503629042652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1094,8 +1095,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.68
-  m_Center: {x: 0.93, y: 0, z: 0}
+  m_Radius: 1
+  m_Center: {x: 1.5, y: 0, z: 0}
 --- !u!136 &136073057462759914
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -7,46 +7,57 @@ public class ShooterRaycaster : MonoBehaviour
     public Transform shootPoint = null;
     public GameObject CurrentTarget { get { return currentTarget; } }
 
-    [SerializeField] float shootAngle = 45;
-    [SerializeField] float shootRadius = 5f;
     [SerializeField] LayerMask shootAbleLayer;
+    [SerializeField] float shootRadius = 5f;
+    [SerializeField] float cuveDetectionThickness = 1f;
+
 
     private GameObject currentTarget = null;
+    private SphereCollider sphereCollider = null;
+
+    private void Awake()
+    {
+        sphereCollider = GetComponent<SphereCollider>();
+    }
 
 
     private void Update()
     {
-        UpdateTarget();
+        UpdateCurrentTarget();
+        print(currentTarget);
+
     }
 
-
-    private void UpdateTarget()
+    private void UpdateCurrentTarget()
     {
-        // getting all targets from ShootSphere
-        Collider[] colliders = Physics.OverlapSphere(shootPoint.position + shootPoint.right * shootRadius, shootRadius, shootAbleLayer);
+        //gets target near from shootPoint
+        Collider[] colliders = Physics.OverlapSphere(shootPoint.position+shootPoint.right,sphereCollider.radius,shootAbleLayer);
         foreach (Collider col in colliders)
         {
-            Transform target = col.transform;
-
-            Vector3 targetDirection = target.position - shootPoint.position;
-
-                // checking whether current target is in shooting Angle
-            float angleBetweenTarget = Vector3.Angle(shootPoint.right, targetDirection);
-
-            if (angleBetweenTarget <= shootAngle)
+            IShootable shootable = col.transform.GetComponent<IShootable>();
+            if (shootable!=null)
             {
-                currentTarget = col.gameObject;
-                print(currentTarget);
+                currentTarget = col.transform.gameObject;
                 return;
-
-            }
-            else
-            {
-                currentTarget = null ;
             }
 
         }
+
+        // gets target far from shootpoint
+        RaycastHit hit;
+        Ray ray = new Ray(shootPoint.position, shootPoint.right);
+        if (Physics.SphereCast(ray, cuveDetectionThickness, out hit, shootRadius * 2, shootAbleLayer))
+        {
+            currentTarget = hit.collider.gameObject;
+            
+
+        }
+
+        
     }
+
+
+
 
     private void OnDrawGizmos()
     {
@@ -54,10 +65,6 @@ public class ShooterRaycaster : MonoBehaviour
         Gizmos.DrawWireSphere(shootPoint.position + shootPoint.transform.right * shootRadius, shootRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(shootPoint.position, shootPoint.right.normalized * shootRadius * 2);
-        if (currentTarget!=null)
-        {
-            Gizmos.DrawSphere(currentTarget.transform.position,0.4f);
-        }
        
         
         
