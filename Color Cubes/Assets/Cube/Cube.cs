@@ -7,6 +7,11 @@ public class Cube : MonoBehaviour,IShootable
 {
 
     Rigidbody rigidbody=null;
+    Transform currentPuller = null;
+    float currentPullSpeed = 0f;
+
+
+   [SerializeField] bool isBeingPulled = false;
    [SerializeField] private float upwardsModifier = 0.1f;
 
     private void Awake()
@@ -24,16 +29,28 @@ public class Cube : MonoBehaviour,IShootable
 	// Update is called once per frame
 	void Update ()
     {
+       
 		
 	}
 
-    public void TakeShot(float blastForce, Vector3 blastPosition, float blastRadius, ForceMode forceMode)
+    public void Shoot(Vector3 shootDirection, ForceMode forceMode)
     {
-        rigidbody.velocity = Vector3.zero;
-        
-        rigidbody.AddExplosionForce(blastForce,blastPosition,blastRadius,upwardsModifier,forceMode);
-        
+       
+
     }
+
+    public GameObject Pull(Transform puller, float pullSpeed)
+    {
+        return null;
+    }
+
+    public void Stop()
+    {
+        
+
+    }
+
+
 
     private void OnCollisionEnter(Collision collision)
     { 

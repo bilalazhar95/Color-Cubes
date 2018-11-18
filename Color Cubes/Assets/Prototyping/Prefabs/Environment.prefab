@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 114313503629042652}
   - component: {fileID: 114531627226596114}
   - component: {fileID: 114078426630950486}
+  - component: {fileID: 135553517624114762}
   m_Layer: 2
   m_Name: Shooter
   m_TagString: Untagged
@@ -443,7 +444,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538974009214366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4329803644545214}
@@ -1046,7 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4449977980559490}
-  shootAngle: 50
+  shootAngle: 10
   shootRadius: 7.48
   shootAbleLayer:
     serializedVersion: 2
@@ -1074,9 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea302f86f777ee9439506df5b765daba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blastForce: 100
-  blastRadius: 0.37
-  explosionOffset: {x: 0, y: 0, z: 0}
+  pullSpeed: 70
   blastForceMode: 1
 --- !u!124 &124549621458695638
 Behaviour:
@@ -1085,6 +1084,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038472505383410}
   m_Enabled: 1
+--- !u!135 &135553517624114762
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1609147523780008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.68
+  m_Center: {x: 0.93, y: 0, z: 0}
 --- !u!136 &136073057462759914
 CapsuleCollider:
   m_ObjectHideFlags: 1

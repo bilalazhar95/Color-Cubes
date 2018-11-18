@@ -5,5 +5,7 @@ using UnityEngine;
 
 public interface IShootable
 {
-    void TakeShot(float blastForce, Vector3 blastPosition,float blastRadius,ForceMode forceMode);
+    void Shoot(Vector3 shootDirection,ForceMode forceMode);
+    GameObject  Pull(Transform puller,float pullSpeed);
+    void Stop();
 }
