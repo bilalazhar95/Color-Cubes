@@ -6,6 +6,6 @@ using UnityEngine;
 public interface IShootable
 {
     void Shoot(Vector3 shootDirection,ForceMode forceMode);
-    GameObject  Pull(Transform puller,float pullSpeed);
+    GameObject  Pull(Transform pullDestination,float pullSpeed);
     void Stop();
 }

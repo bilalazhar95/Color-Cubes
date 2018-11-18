@@ -6,8 +6,6 @@ public class Shooter : MonoBehaviour
 {
     ShooterRaycaster shooterRaycaster = null;
 
-    [SerializeField] private float pullSpeed = 5f;
-    [SerializeField] private ForceMode blastForceMode = ForceMode.Impulse;
 
 
     private void Awake()

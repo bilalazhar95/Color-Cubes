@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4449977980559490}
   m_Layer: 2
-  m_Name: shootPoint
+  m_Name: Puller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,10 +190,11 @@ GameObject:
   - component: {fileID: 33197439101066204}
   - component: {fileID: 136073057462759914}
   - component: {fileID: 23376818951214964}
+  - component: {fileID: 135553517624114762}
   - component: {fileID: 114313503629042652}
   - component: {fileID: 114531627226596114}
   - component: {fileID: 114078426630950486}
-  - component: {fileID: 135553517624114762}
+  - component: {fileID: 114933640915259424}
   m_Layer: 2
   m_Name: Shooter
   m_TagString: Untagged
@@ -262,6 +263,21 @@ GameObject:
   - component: {fileID: 65609435258261922}
   m_Layer: 0
   m_Name: Boundary_UP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1935936970401556
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4793907676906836}
+  m_Layer: 2
+  m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,6 +352,7 @@ Transform:
   m_LocalPosition: {x: -7.15, y: 0, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4449977980559490}
   - {fileID: 4329803644545214}
   m_Father: {fileID: 4774924783825796}
   m_RootOrder: 7
@@ -363,9 +380,9 @@ Transform:
   m_LocalPosition: {x: 0.83, y: 0, z: 0}
   m_LocalScale: {x: 0.95, y: 1, z: 0.37}
   m_Children:
-  - {fileID: 4449977980559490}
+  - {fileID: 4793907676906836}
   m_Father: {fileID: 4167657088918478}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4338903043136528
 Transform:
@@ -444,10 +461,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538974009214366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0.02, z: 0}
+  m_LocalPosition: {x: 2.42, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4329803644545214}
+  m_Father: {fileID: 4167657088918478}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4476857280203534
@@ -496,6 +513,19 @@ Transform:
   - {fileID: 4167657088918478}
   - {fileID: 4431946525770356}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4793907676906836
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935936970401556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4329803644545214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4863885265304476
@@ -1046,13 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31530a726c9e10a42b2ad9df98e49b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 4449977980559490}
+  shootPoint: {fileID: 4793907676906836}
   shootAbleLayer:
     serializedVersion: 2
     m_Bits: 256
-  shootAngle: 10
   shootRadius: 7.48
-  thickness: 0.4
+  cubeDetectionThickness: 1
 --- !u!114 &114313503629042652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1076,8 +1105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea302f86f777ee9439506df5b765daba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 70
-  blastForceMode: 1
+--- !u!114 &114933640915259424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1609147523780008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d63e663ba2da64da2c79673cf9c910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 4449977980559490}
+  pullSpeed: 60
 --- !u!124 &124549621458695638
 Behaviour:
   m_ObjectHideFlags: 1

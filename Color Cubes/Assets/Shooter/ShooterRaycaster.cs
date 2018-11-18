@@ -9,7 +9,7 @@ public class ShooterRaycaster : MonoBehaviour
 
     [SerializeField] LayerMask shootAbleLayer;
     [SerializeField] float shootRadius = 5f;
-    [SerializeField] float cuveDetectionThickness = 1f;
+    [SerializeField] float cubeDetectionThickness = 1f;
 
 
     private GameObject currentTarget = null;
@@ -46,11 +46,15 @@ public class ShooterRaycaster : MonoBehaviour
         // gets target far from shootpoint
         RaycastHit hit;
         Ray ray = new Ray(shootPoint.position, shootPoint.right);
-        if (Physics.SphereCast(ray, cuveDetectionThickness, out hit, shootRadius * 2, shootAbleLayer))
+        if (Physics.SphereCast(ray, cubeDetectionThickness, out hit, shootRadius * 2, shootAbleLayer))
         {
             currentTarget = hit.collider.gameObject;
-            
 
+
+        }
+        else
+        {
+            currentTarget = null;
         }
 
         
@@ -65,8 +69,6 @@ public class ShooterRaycaster : MonoBehaviour
         Gizmos.DrawWireSphere(shootPoint.position + shootPoint.transform.right * shootRadius, shootRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(shootPoint.position, shootPoint.right.normalized * shootRadius * 2);
-       
-        
         
        
 
