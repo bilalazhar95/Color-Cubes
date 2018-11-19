@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] ForceMode shootForceMode = ForceMode.Impulse;
     [SerializeField] float pullSpeed = 50f;
     [SerializeField] ForceMode pullForceMode = ForceMode.Impulse;
+    [SerializeField] float pauseTimeAfterShoot = 0.5f;
 
     PlayerStates state = PlayerStates.READY_TO_PULL;
     Puller puller = null;
@@ -47,8 +48,8 @@ public class Player : MonoBehaviour
             {
                 GameObject currentTarget = playerRaycaster.CurrentTarget;
                 shooter.Shoot(currentTarget, shootSpeed, shootForceMode);
-                puller.IsPulling = false;
-                puller.HasPulledTarget = false;
+                puller.ReleaseCurrentTarget();
+                puller.Pause(pauseTimeAfterShoot);
             }
         }
 
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
     private void UpdatePlayerState()
     {
         // Player state management
-        if (puller.IsPulling && !puller.HasPulledTarget)
+        if (puller.IsPulling && !puller.HasPulledTarget && puller.PullZone.childCount>0)
         {
             state = PlayerStates.BUSY;
         }

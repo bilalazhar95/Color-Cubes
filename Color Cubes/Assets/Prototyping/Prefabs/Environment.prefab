@@ -190,14 +190,13 @@ GameObject:
   - component: {fileID: 33197439101066204}
   - component: {fileID: 136073057462759914}
   - component: {fileID: 23376818951214964}
-  - component: {fileID: 135553517624114762}
   - component: {fileID: 114313503629042652}
   - component: {fileID: 114531627226596114}
   - component: {fileID: 114078426630950486}
   - component: {fileID: 114933640915259424}
   - component: {fileID: 114476453624627982}
   m_Layer: 2
-  m_Name: Shooter
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,7 +461,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538974009214366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.42, y: 0, z: 0}
+  m_LocalPosition: {x: 2.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4167657088918478}
@@ -1106,10 +1105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54a4c57b741eb940acb9e2a2ac849d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 40
+  shootSpeed: 60
   shootForceMode: 1
   pullSpeed: 100
   pullForceMode: 1
+  pauseTimeAfterShoot: 0.4
 --- !u!114 &114531627226596114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4793907676906836}
-  shootExplosionRadius: 0.78
-  shootExplosionForce: 40
+  shootExplosionRadius: 1.45
+  shootExplosionForce: 70
   upwardsModifier: 0.1
   forceMode: 1
 --- !u!114 &114933640915259424
@@ -1137,8 +1137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d63e663ba2da64da2c79673cf9c910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 4449977980559490}
+  pullZone: {fileID: 4449977980559490}
   pullSpeed: 60
+  pullZoneRadius: 1
 --- !u!124 &124549621458695638
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1146,18 +1147,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038472505383410}
   m_Enabled: 1
---- !u!135 &135553517624114762
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1609147523780008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 1.5, y: 0, z: 0}
 --- !u!136 &136073057462759914
 CapsuleCollider:
   m_ObjectHideFlags: 1

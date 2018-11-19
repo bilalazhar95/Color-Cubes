@@ -10,6 +10,7 @@ public class Cube : MonoBehaviour,IShootable
     Transform currentPuller = null;
     float currentPullSpeed = 0f;
     BoxCollider boxCollider = null;
+    Transform thisTransform = null;
 
 
    [SerializeField] bool isBeingPulled = false;
@@ -19,6 +20,7 @@ public class Cube : MonoBehaviour,IShootable
     {
         rigidbody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+        thisTransform = transform;
     }
 
     // Use this for initialization
@@ -29,12 +31,13 @@ public class Cube : MonoBehaviour,IShootable
     }
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
         if (isBeingPulled)
         {
             Vector3 destinationDirection = currentPuller.position - transform.position;
-            rigidbody.AddForce(destinationDirection* Time.fixedDeltaTime*currentPullSpeed,ForceMode.Impulse);
+           transform.position=Vector3.MoveTowards(transform.position,currentPuller.position,currentPullSpeed*Time.deltaTime);
+            //rigidbody.AddForce(destinationDirection* Time.fixedDeltaTime*currentPullSpeed,ForceMode.Impulse);
         }
 		
 	}
@@ -43,13 +46,13 @@ public class Cube : MonoBehaviour,IShootable
     {
         boxCollider.isTrigger = false;
         rigidbody.isKinematic = false;
-        //TODO shoot speed
         rigidbody.AddForce(shootDirection.normalized * shootSpeed,ForceMode.Impulse);
 
     }
 
     public GameObject GetPulled(Transform puller, float pullSpeed,ForceMode forceMode)
     {
+        rigidbody.isKinematic = true;
         boxCollider.isTrigger = true;
         isBeingPulled = true;
         currentPuller = puller;
@@ -62,7 +65,6 @@ public class Cube : MonoBehaviour,IShootable
         rigidbody.isKinematic = true;
         isBeingPulled = false;
         boxCollider.isTrigger = false;
-        print("has stopped");
         
     }
 

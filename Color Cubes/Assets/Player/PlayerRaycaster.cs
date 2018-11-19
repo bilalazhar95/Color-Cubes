@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Puller))]
 public class PlayerRaycaster : MonoBehaviour
 {
     public Transform shootPoint = null;
@@ -13,11 +14,11 @@ public class PlayerRaycaster : MonoBehaviour
 
 
     private GameObject currentTarget = null;
-    private SphereCollider sphereCollider = null;
+    private Puller puller = null;
 
     private void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
+        puller = GetComponent<Puller>();
     }
 
 
@@ -30,7 +31,7 @@ public class PlayerRaycaster : MonoBehaviour
     private void UpdateCurrentTarget()
     {
         //gets target near from shootPoint
-        Collider[] colliders = Physics.OverlapSphere(shootPoint.position+shootPoint.right,sphereCollider.radius,shootAbleLayer);
+        Collider[] colliders = Physics.OverlapSphere(shootPoint.position+shootPoint.right,puller.PullZoneRadius,shootAbleLayer);
         foreach (Collider col in colliders)
         {
             IShootable shootable = col.transform.GetComponent<IShootable>();

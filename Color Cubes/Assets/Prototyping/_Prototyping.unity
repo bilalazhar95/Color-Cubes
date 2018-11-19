@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.34
+      value: -4.59
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.96
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.z
@@ -198,15 +198,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+    - target: {fileID: 114476453624627982, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
         type: 2}
-      propertyPath: shootExplosionForce
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
-        type: 2}
-      propertyPath: shootExplosionRadius
-      value: 1.45
+      propertyPath: pullSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a0c6fa54d9d73408b6e65037ebbc0f, type: 2}
@@ -220,11 +215,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.96
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4585420909182024, guid: 9b7e6dcff687f104fa5f90f881fec622, type: 2}
       propertyPath: m_LocalPosition.z
