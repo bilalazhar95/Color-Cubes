@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterRaycaster : MonoBehaviour
+public class PlayerRaycaster : MonoBehaviour
 {
     public Transform shootPoint = null;
     public GameObject CurrentTarget { get { return currentTarget; } }
@@ -24,7 +24,6 @@ public class ShooterRaycaster : MonoBehaviour
     private void Update()
     {
         UpdateCurrentTarget();
-        print(currentTarget);
 
     }
 

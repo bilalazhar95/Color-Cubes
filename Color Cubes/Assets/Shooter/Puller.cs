@@ -6,50 +6,37 @@ public class Puller : MonoBehaviour
 {
     public Transform destination = null;
 
+    public bool IsPulling { get { return isPulling; } set { isPulling=value; } }
+    public bool HasPulledTarget { get { return hasPulledTarget; } set { hasPulledTarget = value; } }
+
     [SerializeField] private float pullSpeed = 5f;
 
-    ShooterRaycaster shooterRaycaster = null;
-    GameObject targetObject = null;
-    bool isPulling, isTargetPulled = false;
+    PlayerRaycaster shooterRaycaster = null;
+    GameObject currentTarget = null;
+    bool isPulling, hasPulledTarget = false;
+
 
 	// Use this for initialization
 	void Awake ()
     {
-        shooterRaycaster = GetComponent<ShooterRaycaster>();
+        shooterRaycaster = GetComponent<PlayerRaycaster>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //TODO Refactor pulling and shooting
-        if (Input.GetKeyDown(KeyCode.Space))
+        DetachAnyChildIfNotNeeded();
+    }
+
+    private void DetachAnyChildIfNotNeeded()
+    {
+        if (!isPulling && !hasPulledTarget && destination.childCount > 0)
         {
-            if (!isPulling && !isTargetPulled)
-            {
-                Pull();
-            }
-            if (isTargetPulled)
-            {
-                GameObject currentTarget = shooterRaycaster.CurrentTarget;
-                if (currentTarget != null)
-                {
-
-                    IShootable shootable = currentTarget.transform.GetComponent<IShootable>();
-                    if (shootable != null)
-                    {
-                        isPulling = false;
-                        isTargetPulled = false;
-                        print("Pushing");
-                        destination.DetachChildren();
-                        shootable.Shoot(transform.right,ForceMode.Impulse);
-                    }
-                }
-            }
-            
+            destination.DetachChildren();
         }
-	}
+    }
 
-    public GameObject Pull()
+    public GameObject Pull(GameObject targetObject,float pullSpeed,ForceMode forceMode)
     {
         targetObject = shooterRaycaster.CurrentTarget;
         if (targetObject!=null)
@@ -59,7 +46,7 @@ public class Puller : MonoBehaviour
             {
                 print("pulling");
                 isPulling = true;
-                shootable.Pull(destination,pullSpeed);
+                shootable.GetPulled(destination,pullSpeed,forceMode);
             }
         }
 
@@ -70,10 +57,10 @@ public class Puller : MonoBehaviour
     {
         
         IShootable shootable = other.transform.GetComponent<IShootable>();
-        if (shootable!=null && !isTargetPulled)
+        if (shootable!=null && !hasPulledTarget)
         {
             isPulling = false;
-            isTargetPulled = true;
+            hasPulledTarget = true;
             if (destination.childCount>0)
             {
                 destination.DetachChildren();

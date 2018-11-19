@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 114531627226596114}
   - component: {fileID: 114078426630950486}
   - component: {fileID: 114933640915259424}
+  - component: {fileID: 114476453624627982}
   m_Layer: 2
   m_Name: Shooter
   m_TagString: Untagged
@@ -1094,6 +1095,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 360
+--- !u!114 &114476453624627982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1609147523780008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54a4c57b741eb940acb9e2a2ac849d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootSpeed: 40
+  shootForceMode: 1
+  pullSpeed: 100
+  pullForceMode: 1
 --- !u!114 &114531627226596114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1105,6 +1121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea302f86f777ee9439506df5b765daba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootPoint: {fileID: 4793907676906836}
+  shootExplosionRadius: 0.78
+  shootExplosionForce: 40
+  upwardsModifier: 0.1
+  forceMode: 1
 --- !u!114 &114933640915259424
 MonoBehaviour:
   m_ObjectHideFlags: 1

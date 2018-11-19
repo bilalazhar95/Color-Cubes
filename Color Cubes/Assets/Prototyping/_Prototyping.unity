@@ -198,6 +198,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: shootExplosionForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114531627226596114, guid: e0a0c6fa54d9d73408b6e65037ebbc0f,
+        type: 2}
+      propertyPath: shootExplosionRadius
+      value: 1.45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a0c6fa54d9d73408b6e65037ebbc0f, type: 2}
   m_IsPrefabParent: 0

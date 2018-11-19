@@ -29,32 +29,30 @@ public class Cube : MonoBehaviour,IShootable
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         if (isBeingPulled)
         {
             Vector3 destinationDirection = currentPuller.position - transform.position;
-            rigidbody.AddForce(destinationDirection* Time.deltaTime*currentPullSpeed,ForceMode.Impulse);
+            rigidbody.AddForce(destinationDirection* Time.fixedDeltaTime*currentPullSpeed,ForceMode.Impulse);
         }
 		
 	}
 
-    public void Shoot(Vector3 shootDirection, ForceMode forceMode)
+    public void TakeShot(Vector3 shootDirection, float shootSpeed,ForceMode forceMode)
     {
         boxCollider.isTrigger = false;
         rigidbody.isKinematic = false;
         //TODO shoot speed
-        rigidbody.AddForce(shootDirection.normalized * 70f,ForceMode.Impulse);
-        
-        
+        rigidbody.AddForce(shootDirection.normalized * shootSpeed,ForceMode.Impulse);
 
     }
 
-    public GameObject Pull(Transform pullDestination, float pullSpeed)
+    public GameObject GetPulled(Transform puller, float pullSpeed,ForceMode forceMode)
     {
         boxCollider.isTrigger = true;
         isBeingPulled = true;
-        currentPuller = pullDestination;
+        currentPuller = puller;
         currentPullSpeed = pullSpeed;
         return this.gameObject;
     }
@@ -63,7 +61,7 @@ public class Cube : MonoBehaviour,IShootable
     {
         rigidbody.isKinematic = true;
         isBeingPulled = false;
-        boxCollider.isTrigger = true;
+        boxCollider.isTrigger = false;
         print("has stopped");
         
     }

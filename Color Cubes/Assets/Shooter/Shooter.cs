@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    ShooterRaycaster shooterRaycaster = null;
+    [SerializeField] Transform shootPoint=null;
+    [Header("These values does not effect Acquired Target but nearby targets")]
+    [SerializeField] float shootExplosionRadius = 1f;
+    [SerializeField] float shootExplosionForce = 10f;
+    [SerializeField] float upwardsModifier = 0.1f;
+    [SerializeField] ForceMode forceMode = ForceMode.Impulse;
+
+    PlayerRaycaster shooterRaycaster = null;
+    bool targetShot = false;
 
 
 
     private void Awake()
     {
-        shooterRaycaster = GetComponent<ShooterRaycaster>();
+        shooterRaycaster = GetComponent<PlayerRaycaster>();
     }
 
     // Use this for initialization
@@ -27,9 +35,38 @@ public class Shooter : MonoBehaviour
         
 	}
 
+    public void Shoot(GameObject targetObject, float shootSpeed,ForceMode forceMode)
+    {
+        IShootable shootable = targetObject.transform.GetComponent<IShootable>();
+        if (shootable != null)
+        {
+            MakeExplosion();
+            shootable.TakeShot(shootPoint.right, shootSpeed, forceMode);
+        }
+        else
+        {
+            Debug.Log("No shootable target");
+        }
+    }
+
     private void OnDrawGizmos()
     {
-       
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(shootPoint.position,shootExplosionRadius);
+    }
+
+    private void MakeExplosion()
+    {
+        Collider[] colliders= Physics.OverlapSphere(shootPoint.position,shootExplosionRadius);
+        foreach (Collider col in colliders)
+        {
+            Rigidbody rigidbody = col.transform.GetComponent<Rigidbody>();
+            if (rigidbody!=null)
+            {
+                rigidbody.AddExplosionForce(shootExplosionForce,shootPoint.position,shootExplosionRadius,upwardsModifier,forceMode);
+            }
+        }
+
     }
 
 
