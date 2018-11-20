@@ -24,7 +24,6 @@ public class Rotator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
         float rotValue = playerInput.SwipeDirection.y;
         thisTransform.localRotation *= Quaternion.AngleAxis(rotValue * rotateSpeed * Time.deltaTime, Vector3.up);
 
