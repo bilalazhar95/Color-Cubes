@@ -5,12 +5,14 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     Transform thisTransform = null;
+    PlayerInput playerInput = null;
 
    [SerializeField] private float rotateSpeed=360f;
 
     private void Awake()
     {
         thisTransform = GetComponent<Transform>();
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     // Use this for initialization
@@ -22,9 +24,8 @@ public class Rotator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // TODO take rotValue from swipes
 
-        float rotValue = Input.GetAxis("Vertical");
+        float rotValue = playerInput.SwipeDirection.y;
         thisTransform.localRotation *= Quaternion.AngleAxis(rotValue * rotateSpeed * Time.deltaTime, Vector3.up);
 
         

@@ -11,7 +11,6 @@ public class Zone : MonoBehaviour
         ICollectable collectable = other.transform.GetComponent<ICollectable>();
         if (collectable!=null)
         {
-            //TODO collect the collided
             collectable.Collect(type);
         }
     }
