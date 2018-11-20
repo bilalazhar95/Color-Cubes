@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Cube : MonoBehaviour,IShootable
+public class Cube : MonoBehaviour,IShootable,ICollectable
 {
 
-    Rigidbody rigidbody=null;
+    Rigidbody thisRigidBody=null;
     Transform currentPuller = null;
     float currentPullSpeed = 0f;
     BoxCollider boxCollider = null;
     Transform thisTransform = null;
+    bool isBeingPulled = false;
 
-
-   [SerializeField] bool isBeingPulled = false;
+    [SerializeField] ZoneType compatibleZone = ZoneType.NEUTRAL;
    [SerializeField] private float upwardsModifier = 0.1f;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        thisRigidBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         thisTransform = transform;
     }
@@ -45,14 +45,14 @@ public class Cube : MonoBehaviour,IShootable
     public void TakeShot(Vector3 shootDirection, float shootSpeed,ForceMode forceMode)
     {
         boxCollider.isTrigger = false;
-        rigidbody.isKinematic = false;
-        rigidbody.AddForce(shootDirection.normalized * shootSpeed,ForceMode.Impulse);
+        thisRigidBody.isKinematic = false;
+        thisRigidBody.AddForce(shootDirection.normalized * shootSpeed,ForceMode.Impulse);
 
     }
 
     public GameObject GetPulled(Transform puller, float pullSpeed,ForceMode forceMode)
     {
-        rigidbody.isKinematic = true;
+        thisRigidBody.isKinematic = true;
         boxCollider.isTrigger = true;
         isBeingPulled = true;
         currentPuller = puller;
@@ -62,10 +62,23 @@ public class Cube : MonoBehaviour,IShootable
 
     public void Stop()
     {
-        rigidbody.isKinematic = true;
+        thisRigidBody.isKinematic = true;
         isBeingPulled = false;
         boxCollider.isTrigger = false;
         
+    }
+
+    public void Collect(ZoneType type)
+    {
+        if (compatibleZone == type)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+
+            print("- Health");
+        }
     }
 
 

@@ -80,7 +80,6 @@ public class Puller : MonoBehaviour
     {
         if (paused || pullZone.childCount>0)
         {
-            Debug.Log("cant pull");
             return;
         }
 
