@@ -28,27 +28,18 @@ public class PlayerInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPoin
         thisRectTransform = transform.GetComponent<RectTransform>();
 	}
 
-    private void Start()
-    {
-        deadzoneWidth = deadzoneWidth / thisRectTransform.rect.width;
-    }
 
-
-
-    // Update is called once per frame
-    void Update ()
-    {
-
-
-
-    }
 
     public void OnDrag(PointerEventData eventData)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(thisRectTransform, eventData.position, eventData.pressEventCamera, out swipeEnd);
+
         swipeDirection = (swipeEnd - swipeStart);
+        // making swipe vector relative to rect transform area
+
         Vector2 rectRelativeVector = new Vector2(SwipeDirection.x/thisRectTransform.rect.width,swipeDirection.y/thisRectTransform.rect.height);
-        if (rectRelativeVector.sqrMagnitude<deadzoneWidth)
+
+        if (rectRelativeVector.sqrMagnitude<deadzoneWidth*deadzoneWidth)
         {
             swipeDirection = Vector2.zero;
         }
