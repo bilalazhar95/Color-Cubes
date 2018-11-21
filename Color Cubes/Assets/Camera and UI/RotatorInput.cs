@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPointerUpHandler
+public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPointerUpHandler,IEndDragHandler
 {
     // TODO Make a swipe deadzone
     //TODO Swipe speed based movement
@@ -32,36 +32,50 @@ public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPoi
 
     public void OnDrag(PointerEventData eventData)
     {
+
+
         RectTransformUtility.ScreenPointToLocalPointInRectangle(thisRectTransform, eventData.position, eventData.pressEventCamera, out swipeEnd);
 
         swipeDirection = (swipeEnd - swipeStart);
-        // making swipe vector relative to rect transform area
+ 
+        //making swipe vector relative to rect transform area
 
-        Vector2 rectRelativeVector = new Vector2(SwipeDirection.x/thisRectTransform.rect.width,swipeDirection.y/thisRectTransform.rect.height);
+       Vector2 rectRelativeVector = new Vector2(SwipeDirection.x/thisRectTransform.rect.width,swipeDirection.y/thisRectTransform.rect.height);
 
-        if (rectRelativeVector.sqrMagnitude<deadzoneWidth*deadzoneWidth)
-        {
+       if (rectRelativeVector.sqrMagnitude<deadzoneWidth*deadzoneWidth)
+       {
             swipeDirection = Vector2.zero;
-        }
+       }
       
 
     }
 
 
+
     public void OnPointerClick(PointerEventData eventData)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(thisRectTransform,eventData.position,eventData.pressEventCamera,out swipeStart);
+       
+        print(swipeStart);
     }
 
 
     public void OnPointerUp(PointerEventData eventData)
     {
         swipeStart = Vector2.zero;
+        swipeEnd = Vector2.zero;
         swipeDirection = Vector3.zero;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        swipeStart = Vector2.zero;
+        swipeEnd = Vector2.zero;
+        swipeDirection = Vector3.zero;
     }
 }
