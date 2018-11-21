@@ -6,8 +6,8 @@ public class Rotator : MonoBehaviour
 {
     Transform thisTransform = null;
     PlayerInput playerInput = null;
-
-   [SerializeField] private float rotateSpeed=360f;
+    
+   [Range(0,1)][SerializeField] private float rotateSpeed=0;
 
     private void Awake()
     {
@@ -24,8 +24,14 @@ public class Rotator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        Vector2 swipeDirection = playerInput.SwipeDirection;
+        if (swipeDirection == Vector2.zero)
+        {
+            return;
+        }
         float rotValue = playerInput.SwipeDirection.y;
-        thisTransform.localRotation *= Quaternion.AngleAxis(rotValue * rotateSpeed * Time.deltaTime, Vector3.up);
+        Quaternion lookRotation = Quaternion.LookRotation(swipeDirection, Vector3.back);
+        thisTransform.localRotation = Quaternion.Slerp(thisTransform.localRotation, lookRotation, rotateSpeed);
 
         
 		
