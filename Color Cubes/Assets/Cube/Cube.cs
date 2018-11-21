@@ -14,7 +14,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     bool isBeingPulled = false;
 
     [SerializeField] ZoneType compatibleZone = ZoneType.NEUTRAL;
-   [SerializeField] private float upwardsModifier = 0.1f;
+ 
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     {
         if (isBeingPulled)
         {
-            Vector3 destinationDirection = currentPuller.position - transform.position;
+            
            transform.position=Vector3.MoveTowards(transform.position,currentPuller.position,currentPullSpeed*Time.deltaTime);
             //rigidbody.AddForce(destinationDirection* Time.fixedDeltaTime*currentPullSpeed,ForceMode.Impulse);
         }

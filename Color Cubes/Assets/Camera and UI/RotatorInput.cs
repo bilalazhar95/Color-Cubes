@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayerInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPointerUpHandler
+public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPointerUpHandler
 {
     // TODO Make a swipe deadzone
     //TODO Swipe speed based movement

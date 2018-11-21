@@ -12,7 +12,6 @@ public class Shooter : MonoBehaviour
     [SerializeField] ForceMode forceMode = ForceMode.Impulse;
 
     PlayerRaycaster shooterRaycaster = null;
-    bool targetShot = false;
 
 
 
@@ -21,19 +20,7 @@ public class Shooter : MonoBehaviour
         shooterRaycaster = GetComponent<PlayerRaycaster>();
     }
 
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-
-       
-        
-	}
+   
 
     public void Shoot(GameObject targetObject, float shootSpeed,ForceMode forceMode)
     {

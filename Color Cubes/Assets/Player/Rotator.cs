@@ -5,14 +5,14 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     Transform thisTransform = null;
-    PlayerInput playerInput = null;
+    RotatorInput playerInput = null;
     
    [Range(0,1)][SerializeField] private float rotateSpeed=0;
 
     private void Awake()
     {
         thisTransform = GetComponent<Transform>();
-        playerInput = FindObjectOfType<PlayerInput>();
+        playerInput = FindObjectOfType<RotatorInput>();
     }
 
     // Use this for initialization
@@ -29,7 +29,7 @@ public class Rotator : MonoBehaviour
         {
             return;
         }
-        float rotValue = playerInput.SwipeDirection.y;
+       
         Quaternion lookRotation = Quaternion.LookRotation(swipeDirection, Vector3.back);
         thisTransform.localRotation = Quaternion.Slerp(thisTransform.localRotation, lookRotation, rotateSpeed);
 

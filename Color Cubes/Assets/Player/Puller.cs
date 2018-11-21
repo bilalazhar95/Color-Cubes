@@ -11,12 +11,11 @@ public class Puller : MonoBehaviour
     public float PullZoneRadius { get { return pullZoneRadius; } }
 
     [SerializeField] private Transform pullZone = null;
-    [SerializeField] private float pullSpeed = 5f;
-    [SerializeField] private float pullZoneRadius = 1f;
     
+    [SerializeField] private float pullZoneRadius = 1f;
+
 
     PlayerRaycaster shooterRaycaster = null;
-    GameObject currentTarget = null;
     bool isPulling, hasPulledTarget,paused = false;
     private float unPauseTime = 0f;
 

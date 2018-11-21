@@ -35,26 +35,31 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (state == PlayerStates.BUSY)
-            {
-                Debug.Log("Busy");
-            }
-            else if (state == PlayerStates.READY_TO_PULL)
-            {
-                GameObject currentTarget = playerRaycaster.CurrentTarget;
-                puller.Pull(currentTarget, pullSpeed, pullForceMode);
-            }
-            else if (state == PlayerStates.READY_TO_SHOOT)
-            {
-                GameObject currentTarget = playerRaycaster.CurrentTarget;
-                shooter.Shoot(currentTarget, shootSpeed, shootForceMode);
-                puller.ReleaseCurrentTarget();
-                puller.Pause(pauseTimeAfterShoot);
-            }
+            Shoot();
         }
 
-       
 
+
+    }
+
+    public void Shoot()
+    {
+        if (state == PlayerStates.BUSY)
+        {
+            Debug.Log("Busy");
+        }
+        else if (state == PlayerStates.READY_TO_PULL)
+        {
+            GameObject currentTarget = playerRaycaster.CurrentTarget;
+            puller.Pull(currentTarget, pullSpeed, pullForceMode);
+        }
+        else if (state == PlayerStates.READY_TO_SHOOT)
+        {
+            GameObject currentTarget = playerRaycaster.CurrentTarget;
+            shooter.Shoot(currentTarget, shootSpeed, shootForceMode);
+            puller.ReleaseCurrentTarget();
+            puller.Pause(pauseTimeAfterShoot);
+        }
     }
 
     private void UpdatePlayerState()

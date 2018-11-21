@@ -8,7 +8,7 @@ public class PlayerRaycaster : MonoBehaviour
     public Transform shootPoint = null;
     public GameObject CurrentTarget { get { return currentTarget; } }
 
-    [SerializeField] LayerMask shootAbleLayer;
+    [SerializeField] LayerMask shootAbleLayer=8;
     [SerializeField] float shootRadius = 5f;
     [SerializeField] float cubeDetectionThickness = 1f;
 
