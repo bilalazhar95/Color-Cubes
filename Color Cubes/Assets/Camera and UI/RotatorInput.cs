@@ -56,7 +56,7 @@ public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPoi
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(thisRectTransform,eventData.position,eventData.pressEventCamera,out swipeStart);
        
-        print(swipeStart);
+
     }
 
 

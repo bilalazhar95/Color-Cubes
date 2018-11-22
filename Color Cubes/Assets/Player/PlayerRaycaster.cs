@@ -57,6 +57,7 @@ public class PlayerRaycaster : MonoBehaviour
             currentTarget = null;
         }
 
+        print(currentTarget);
         
     }
 

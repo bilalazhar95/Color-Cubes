@@ -30,8 +30,8 @@ public class Rotator : MonoBehaviour
             return;
         }
        
-        Quaternion lookRotation = Quaternion.LookRotation(swipeDirection, Vector3.back);
-        thisTransform.localRotation = Quaternion.Slerp(thisTransform.localRotation, lookRotation, rotateSpeed);
+        Quaternion lookRotation = Quaternion.LookRotation(swipeDirection, Vector3.forward);
+        thisTransform.localRotation = Quaternion.Lerp(thisTransform.localRotation, lookRotation, rotateSpeed);
 
         
 		
