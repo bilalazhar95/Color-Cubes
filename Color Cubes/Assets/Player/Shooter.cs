@@ -24,6 +24,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot(GameObject targetObject, float shootSpeed,ForceMode forceMode)
     {
+        if (targetObject==null) { return; }
      
         IShootable shootable = targetObject.transform.GetComponent<IShootable>();
         if (shootable != null)

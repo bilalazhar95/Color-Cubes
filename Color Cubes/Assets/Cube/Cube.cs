@@ -81,6 +81,12 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
         }
     }
 
+    public void Move(Vector3 moveDirection, float speed, ForceMode forceMode)
+    {
+        thisRigidBody.AddForce(moveDirection * speed,forceMode);
+    }
 
-   
+
+
+
 }
