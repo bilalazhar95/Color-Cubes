@@ -29,7 +29,7 @@ public class Shooter : MonoBehaviour
         if (shootable != null)
         {
             MakeExplosion();
-            shootable.TakeShot(shootPoint.right, shootSpeed, forceMode);
+            shootable.TakeShot(shootPoint.forward, shootSpeed, forceMode);
         }
         else
         {

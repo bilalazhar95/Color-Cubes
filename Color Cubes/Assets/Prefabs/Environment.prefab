@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4545814742915858}
   - component: {fileID: 120920963939976756}
   m_Layer: 2
-  m_Name: LineRender
+  m_Name: laserPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 114199191479116590}
   - component: {fileID: 114168023413836548}
   - component: {fileID: 114907947136402524}
+  - component: {fileID: 114677670038581122}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -355,7 +356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765562553800674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.44}
+  m_LocalPosition: {x: 0, y: 0, z: 2.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442687297983078}
@@ -459,6 +460,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4020600833696640}
+  - {fileID: 4504895664435654}
+  - {fileID: 4545814742915858}
   - {fileID: 4548323787962324}
   m_Father: {fileID: 4394627964829486}
   m_RootOrder: 8
@@ -470,11 +473,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151934661904284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4548323787962324}
-  m_RootOrder: 0
+  m_Father: {fileID: 4442687297983078}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4545814742915858
 Transform:
@@ -483,11 +486,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295964055825264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56, y: 0, z: -0.02}
+  m_LocalPosition: {x: 0, y: 0, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4548323787962324}
-  m_RootOrder: 1
+  m_Father: {fileID: 4442687297983078}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4548323787962324
 Transform:
@@ -495,15 +498,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830480800790288}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.45, z: 0.94}
-  m_LocalScale: {x: 0.95, y: 1, z: 0.37}
-  m_Children:
-  - {fileID: 4504895664435654}
-  - {fileID: 4545814742915858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 1.02}
+  m_LocalScale: {x: 0.27, y: 0.3, z: 1}
+  m_Children: []
   m_Father: {fileID: 4442687297983078}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4612248070623202
 Transform:
   m_ObjectHideFlags: 1
@@ -1180,6 +1181,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+--- !u!114 &114677670038581122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893706047337400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e225aa7cc7133f4894136137ced6a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserTransform: {fileID: 4545814742915858}
+  laserRange: 25
+  targetSnapping: 0
 --- !u!114 &114901649092899584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1222,7 +1237,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe888f85d53275449bdec2c8a04947c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1244,33 +1259,10 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 2, y: 0, z: 0}
-  - {x: 3, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  - {x: 6, y: 0, z: 0}
-  - {x: 7, y: 0, z: 0}
-  - {x: 8, y: 0, z: 0}
-  - {x: 9, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
-  - {x: 11, y: 0, z: 0}
-  - {x: 12, y: 0, z: 0}
-  - {x: 13, y: 0, z: 0}
-  - {x: 14, y: 0, z: 0}
-  - {x: 15, y: 0, z: 0}
-  - {x: 16, y: 0, z: 0}
-  - {x: 17, y: 0, z: 0}
-  - {x: 18, y: 0, z: 0}
-  - {x: 19, y: 0, z: 0}
-  - {x: 20, y: 0, z: 0}
-  - {x: 21, y: 0, z: 0}
-  - {x: 22, y: 0, z: 0}
-  - {x: 23, y: 0, z: 0}
-  - {x: 24, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1285,18 +1277,18 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.14705884, b: 0.14705884, a: 1}
+      key1: {r: 1, g: 0.14705884, b: 0.14705884, a: 1}
+      key2: {r: 0.06526398, g: 0, b: 0.8602941, a: 0}
+      key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime2: 51272
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -1317,7 +1309,7 @@ LineRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!124 &124614205923629830
 Behaviour:

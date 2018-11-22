@@ -31,7 +31,7 @@ public class PlayerRaycaster : MonoBehaviour
     private void UpdateCurrentTarget()
     {
         //gets target near from shootPoint
-        Collider[] colliders = Physics.OverlapSphere(shootPoint.position+shootPoint.right,puller.PullZoneRadius,shootAbleLayer);
+        Collider[] colliders = Physics.OverlapSphere(shootPoint.position+shootPoint.forward,puller.PullZoneRadius,shootAbleLayer);
         foreach (Collider col in colliders)
         {
             IShootable shootable = col.transform.GetComponent<IShootable>();
@@ -45,7 +45,7 @@ public class PlayerRaycaster : MonoBehaviour
 
         // gets target far from shootpoint
         RaycastHit hit;
-        Ray ray = new Ray(shootPoint.position, shootPoint.right);
+        Ray ray = new Ray(shootPoint.position, shootPoint.forward);
         if (Physics.SphereCast(ray, cubeDetectionThickness, out hit, shootRadius * 2, shootAbleLayer))
         {
             currentTarget = hit.collider.gameObject;
@@ -57,7 +57,6 @@ public class PlayerRaycaster : MonoBehaviour
             currentTarget = null;
         }
 
-        print(currentTarget);
         
     }
 
@@ -67,9 +66,9 @@ public class PlayerRaycaster : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(shootPoint.position + shootPoint.transform.right * shootRadius, shootRadius);
+        Gizmos.DrawWireSphere(shootPoint.position + shootPoint.forward * shootRadius, shootRadius);
         Gizmos.color = Color.blue;
-        Gizmos.DrawRay(shootPoint.position, shootPoint.right.normalized * shootRadius * 2);
+        Gizmos.DrawRay(shootPoint.position, shootPoint.forward.normalized * shootRadius * 2);
         
        
 

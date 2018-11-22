@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public PlayerStates State { get { return state; } }
+
     [SerializeField] float shootSpeed = 10f;
     [SerializeField] ForceMode shootForceMode = ForceMode.Impulse;
     [SerializeField] float pullSpeed = 50f;
