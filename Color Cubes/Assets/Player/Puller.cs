@@ -53,7 +53,7 @@ public class Puller : MonoBehaviour
         }
     }
 
-    public void Pull(GameObject targetObject,float pullSpeed,ForceMode forceMode)
+    public void Pull(GameObject targetObject,float pullSpeed)
     {
         if (paused||IsPulling||hasPulledTarget||pullZone.childCount>0)
         {
@@ -66,7 +66,7 @@ public class Puller : MonoBehaviour
             if (shootable!=null)
             {
                 isPulling = true;
-                shootable.GetPulled(pullZone,pullSpeed,forceMode);
+                shootable.GetPulled(pullZone,pullSpeed);
             }
         }
 

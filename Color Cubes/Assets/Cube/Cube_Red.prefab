@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61fce803df6efd42b827322b74284e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSmoothing: 0.8
   compatibleZone: 0
-  upwardsModifier: 0.1

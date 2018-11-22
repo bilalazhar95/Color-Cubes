@@ -6,10 +6,9 @@ public class Player : MonoBehaviour
 {
     public PlayerStates State { get { return state; } }
 
-    [SerializeField] float shootSpeed = 10f;
     [SerializeField] ForceMode shootForceMode = ForceMode.Impulse;
+    [SerializeField] float shootSpeed = 10f;
     [SerializeField] float pullSpeed = 50f;
-    [SerializeField] ForceMode pullForceMode = ForceMode.Impulse;
     [SerializeField] float pauseTimeAfterShoot = 0.5f;
 
     PlayerStates state = PlayerStates.READY_TO_PULL;
@@ -53,7 +52,7 @@ public class Player : MonoBehaviour
         else if (state == PlayerStates.READY_TO_PULL)
         {
             GameObject currentTarget = playerRaycaster.CurrentTarget;
-            puller.Pull(currentTarget, pullSpeed, pullForceMode);
+            puller.Pull(currentTarget, pullSpeed);
         }
         else if (state == PlayerStates.READY_TO_SHOOT)
         {

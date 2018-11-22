@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour,IShootable,ICollectable
 {
+    [Range(0,1)]
+    [SerializeField] private float moveSmoothing = 0.5f;
 
     Rigidbody thisRigidBody=null;
     Transform currentPuller = null;
@@ -31,13 +33,12 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
         if (isBeingPulled)
         {
-            
-           transform.position=Vector3.MoveTowards(transform.position,currentPuller.position,currentPullSpeed*Time.deltaTime);
-            //rigidbody.AddForce(destinationDirection* Time.fixedDeltaTime*currentPullSpeed,ForceMode.Impulse);
+            Vector3 deltaPos = Vector3.MoveTowards(transform.position, currentPuller.position, currentPullSpeed * Time.deltaTime);
+            transform.position= Vector3.Lerp(transform.position,deltaPos, currentPullSpeed * moveSmoothing );
         }
 		
 	}
@@ -50,7 +51,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
 
     }
 
-    public GameObject GetPulled(Transform puller, float pullSpeed,ForceMode forceMode)
+    public GameObject GetPulled(Transform puller, float pullSpeed)
     {
         thisRigidBody.isKinematic = true;
         boxCollider.isTrigger = true;

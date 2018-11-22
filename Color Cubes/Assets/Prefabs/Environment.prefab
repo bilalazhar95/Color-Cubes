@@ -1218,10 +1218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54a4c57b741eb940acb9e2a2ac849d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 60
   shootForceMode: 1
+  shootSpeed: 50
   pullSpeed: 50
-  pullForceMode: 1
   pauseTimeAfterShoot: 0.4
 --- !u!120 &120920963939976756
 LineRenderer:
