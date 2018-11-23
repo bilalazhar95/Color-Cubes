@@ -5,15 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRaycaster))]
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(Player))]
+[RequireComponent(typeof(Puller))]
 public class Laser : MonoBehaviour
 {
     
     [SerializeField] private Transform laserTransform = null;
     [SerializeField] private float laserRange = 25;
     [SerializeField] private bool targetSnapping = false;
+
     PlayerRaycaster raycaster = null;
     LineRenderer laserRenderer = null;
     Player player = null;
+    Puller puller = null;
+    
 
 
 	// Use this for initialization
@@ -22,6 +26,7 @@ public class Laser : MonoBehaviour
         raycaster = GetComponent<PlayerRaycaster>();
         laserRenderer = laserTransform.GetComponent<LineRenderer>();
         player = GetComponent<Player>();
+        puller = GetComponent<Puller>();
 	}
 
     private void Start()
@@ -54,9 +59,18 @@ public class Laser : MonoBehaviour
 
         GameObject currentTarget = raycaster.CurrentTarget;
 
+        if (currentTarget!=null &&currentTarget.transform.CompareTag("striker") && puller.StrikerOnlyMode && player.State!=PlayerStates.READY_TO_SHOOT)
+        {
+            targetSnapping = true;
+        }
+        else
+        {
+            targetSnapping = false;
+        }
 
 
-        if (currentTarget != null && targetSnapping)
+
+        if (targetSnapping)
         {
 
             Vector3 laserHit = currentTarget.transform.position;

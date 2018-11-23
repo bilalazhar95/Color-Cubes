@@ -612,7 +612,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216746556448880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.77, z: 0}
+  m_LocalPosition: {x: 0, y: -2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4260953482274342}
@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullZone: {fileID: 4020600833696640}
   pullZoneRadius: 1
+  strikerOnly: 1
 --- !u!114 &114199191479116590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,7 +1187,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   shootRadius: 11.63
-  cubeDetectionThickness: 1
+  cubeDetectionThickness: 1.5
 --- !u!114 &114359952474871334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1222,13 +1223,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84a1c34183fa37438c012e855213d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {fileID: 4893308250932602}
   shootablePrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1646444597164016, guid: 7c9c4a6c7e591d14fbc8ab7579c0c8bb, type: 2}
+  - {fileID: 1297294658544852, guid: 90d224b6ac610d245bb18dd9cfeb294b, type: 2}
+  - {fileID: 1514957834396932, guid: e810aca2b1810ae469c3b600fa328033, type: 2}
+  spawnPosition: {fileID: 4893308250932602}
   initDelay: 3
-  shootableSpawnDelay: 7
+  shootableSpawnDelay: 10
   moveSpeed: 5
 --- !u!114 &114677670038581122
 MonoBehaviour:

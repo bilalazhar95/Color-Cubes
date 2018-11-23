@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerStates State { get { return state; } }
+    
 
     [SerializeField] ForceMode shootForceMode = ForceMode.Impulse;
     [SerializeField] float shootSpeed = 10f;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     Puller puller = null;
     Shooter shooter = null;
     PlayerRaycaster playerRaycaster = null;
-
+    
 
 	// Use this for initialization
 	void Awake ()
