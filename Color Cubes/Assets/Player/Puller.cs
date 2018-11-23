@@ -107,6 +107,10 @@ public class Puller : MonoBehaviour
         Collider[] allcolliders = Physics.OverlapSphere(pullZone.position, pullZoneRadius);
         foreach (Collider col in allcolliders)
         {
+            if (StrikerOnlyMode && !col.transform.CompareTag("striker"))
+            {
+                return;
+            }
             IShootable shootable = col.transform.GetComponent<IShootable>();
             if (shootable != null && !hasPulledTarget)
             {
