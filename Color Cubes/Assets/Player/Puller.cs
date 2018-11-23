@@ -13,7 +13,9 @@ public class Puller : MonoBehaviour
 
     [SerializeField] private Transform pullZone = null;
     [SerializeField] private float pullZoneRadius = 1f;
-    [SerializeField] bool strikerOnly = true;
+
+    //TODO optional to fix strikermode off because on keeps game interesting
+    bool strikerOnly = true;
 
 
     PlayerRaycaster shooterRaycaster = null;
@@ -61,36 +63,42 @@ public class Puller : MonoBehaviour
         {
             return;
         }
+
         targetObject = shooterRaycaster.CurrentTarget;
-        if (targetObject!=null)
+
+        if (targetObject==null)
         {
-            if (strikerOnly)
-            {
-                if (!targetObject.transform.CompareTag("striker"))
-                {
-                    print("cant pull");
-                    return;
-                }
-
-                IShootable shootable = targetObject.transform.GetComponent<IShootable>();
-                if (shootable != null)
-                {
-                    isPulling = true;
-                    shootable.GetPulled(pullZone, pullSpeed);
-                }
-
-            }
-            else
-            {
-                IShootable shootable = targetObject.transform.GetComponent<IShootable>();
-                if (shootable != null)
-                {
-                    isPulling = true;
-                    shootable.GetPulled(pullZone, pullSpeed);
-                }
-            }
-          
+            return;
         }
+
+        if (strikerOnly)
+        {
+
+            if (!targetObject.transform.CompareTag("striker"))
+            {
+                return;
+            }
+
+            IShootable shootable = targetObject.transform.GetComponent<IShootable>();
+            if (shootable != null)
+            {
+                isPulling = true;
+                shootable.GetPulled(pullZone, pullSpeed);
+            }
+        }
+
+        else
+        {
+
+            IShootable shootable = targetObject.transform.GetComponent<IShootable>();
+            if (shootable != null)
+            {
+                isPulling = true;
+                shootable.GetPulled(pullZone, pullSpeed);
+            }
+        }
+          
+        
 
     }
 
@@ -111,6 +119,7 @@ public class Puller : MonoBehaviour
             {
                 return;
             }
+
             IShootable shootable = col.transform.GetComponent<IShootable>();
             if (shootable != null && !hasPulledTarget)
             {
@@ -128,6 +137,7 @@ public class Puller : MonoBehaviour
             }
         }
     }
+
 
     public void Pause(float pauseTime)
     {

@@ -490,7 +490,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151934661904284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.56}
+  m_LocalPosition: {x: 0, y: 0, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442687297983078}
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 4504895664435654}
-  shootExplosionRadius: 1.45
+  shootExplosionRadius: 2
   shootExplosionForce: 70
   upwardsModifier: 0.1
   forceMode: 1
@@ -1170,7 +1170,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullZone: {fileID: 4020600833696640}
   pullZoneRadius: 1
-  strikerOnly: 1
 --- !u!114 &114199191479116590
 MonoBehaviour:
   m_ObjectHideFlags: 1
