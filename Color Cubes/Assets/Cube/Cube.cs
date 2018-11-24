@@ -7,6 +7,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
 {
     [Range(0,1)]
     [SerializeField] private float moveSmoothing = 0.5f;
+    [SerializeField] private float damage = 1f;
 
     Rigidbody thisRigidBody=null;
     Transform currentPuller = null;
@@ -14,6 +15,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     BoxCollider boxCollider = null;
     Transform thisTransform = null;
     bool isBeingPulled = false;
+    Player player = null;
 
     [SerializeField] ZoneType compatibleZone = ZoneType.NEUTRAL;
  
@@ -23,6 +25,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
         thisRigidBody = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         thisTransform = transform;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     // Use this for initialization
@@ -77,7 +80,9 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
         }
         else
         {
-
+            // TODO  show cool effects here 
+            player.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 

@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class RotatorInput : MonoBehaviour,IPointerClickHandler,IDragHandler,IPointerUpHandler,IEndDragHandler
 {
-    // TODO Make a swipe deadzone
-    //TODO Swipe speed based movement
+   
+   
 
     public Vector2 SwipeDirection { get { return swipeDirection; } }
 

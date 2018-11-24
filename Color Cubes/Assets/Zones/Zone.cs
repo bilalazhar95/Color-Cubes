@@ -9,7 +9,7 @@ public class Zone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ICollectable collectable = other.transform.GetComponent<ICollectable>();
-        if (collectable!=null)
+        if (collectable!=null && !other.transform.CompareTag("striker"))
         {
             collectable.Collect(type);
         }
@@ -18,7 +18,7 @@ public class Zone : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         ICollectable collectable = other.transform.GetComponent<ICollectable>();
-        if (collectable != null)
+        if (collectable != null && !other.transform.CompareTag("striker"))
         {
             collectable.Collect(type);
         }

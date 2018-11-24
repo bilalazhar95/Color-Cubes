@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IDamageable
 {
     public PlayerStates State { get { return state; } }
-    
 
+    [SerializeField] HealthBar healthbar = null;
+    [SerializeField] float maxhealth=100f;
     [SerializeField] ForceMode shootForceMode = ForceMode.Impulse;
     [SerializeField] float shootSpeed = 10f;
     [SerializeField] float pullSpeed = 50f;
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     Puller puller = null;
     Shooter shooter = null;
     PlayerRaycaster playerRaycaster = null;
+    float currentHealth;
     
 
 	// Use this for initialization
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
         puller = GetComponent<Puller>();
         shooter = GetComponent<Shooter>();
         playerRaycaster = GetComponent<PlayerRaycaster>();
+        currentHealth = maxhealth;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class Player : MonoBehaviour
 
         UpdatePlayerState();
 
-        //TODO implement player controls here in this script
+        //This is for debug purpose
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -79,5 +82,12 @@ public class Player : MonoBehaviour
         {
             state = PlayerStates.READY_TO_PULL;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        float normalizedHealth = Mathf.Clamp(currentHealth / maxhealth, 0, 1);
+        healthbar.SetBarSize(normalizedHealth);
     }
 }

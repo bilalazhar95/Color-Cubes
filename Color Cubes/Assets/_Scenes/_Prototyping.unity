@@ -155,6 +155,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90d224b6ac610d245bb18dd9cfeb294b, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &94047193 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114211924435962136, guid: 18c73799e0f35d24d8a57c154a51eb86,
+    type: 2}
+  m_PrefabInternal: {fileID: 101360021}
+  m_Script: {fileID: 11500000, guid: 263b74c7ec6debd499f94d75769a47f0, type: 3}
 --- !u!1001 &101360021
 Prefab:
   m_ObjectHideFlags: 0
@@ -344,7 +350,39 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c9c4a6c7e591d14fbc8ab7579c0c8bb, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1146978453
+--- !u!1 &1160381620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1160381621}
+  m_Layer: 0
+  m_Name: InGameEntities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160381621
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160381620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1441989805}
+  - {fileID: 503838412}
+  - {fileID: 2088983721}
+  - {fileID: 2071747894}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1212729625
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -383,41 +421,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114907947136402524, guid: 6cdefbcd302154b43b697f1275937262,
+        type: 2}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 94047193}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cdefbcd302154b43b697f1275937262, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1160381620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1160381621}
-  m_Layer: 0
-  m_Name: InGameEntities
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1160381621
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1160381620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1441989805}
-  - {fileID: 503838412}
-  - {fileID: 2088983721}
-  - {fileID: 2071747894}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1441989805 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4032509233461168, guid: 7c9c4a6c7e591d14fbc8ab7579c0c8bb,
@@ -533,6 +544,23 @@ Prefab:
     - target: {fileID: 4739298596203240, guid: e1452979fbb062c4f9b2c64189c16d98, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739298596203240, guid: e1452979fbb062c4f9b2c64189c16d98, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739298596203240, guid: e1452979fbb062c4f9b2c64189c16d98, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739298596203240, guid: e1452979fbb062c4f9b2c64189c16d98, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54917093031489550, guid: e1452979fbb062c4f9b2c64189c16d98,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1452979fbb062c4f9b2c64189c16d98, type: 2}
