@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EZCameraShake;
+
 
 public class Player : MonoBehaviour,IDamageable
 {
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour,IDamageable
     Shooter shooter = null;
     PlayerRaycaster playerRaycaster = null;
     float currentHealth;
-    CameraShaker cameraShaker = null;
+ 
     
 
 	// Use this for initialization
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour,IDamageable
         shooter = GetComponent<Shooter>();
         playerRaycaster = GetComponent<PlayerRaycaster>();
         currentHealth = maxhealth;
-        cameraShaker = CameraShaker.Instance;
+
 	}
 	
 	// Update is called once per frame
@@ -94,7 +94,6 @@ public class Player : MonoBehaviour,IDamageable
         currentHealth -= damage;
         float normalizedHealth = Mathf.Clamp(currentHealth / maxhealth, 0, 1);
         healthbar.SetBarSize(normalizedHealth);
-        cameraShaker.Shake(CameraShakePresets.Bump);
 
     }
 }
