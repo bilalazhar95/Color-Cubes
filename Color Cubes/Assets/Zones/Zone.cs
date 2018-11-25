@@ -12,6 +12,8 @@ public class Zone : MonoBehaviour
         if (collectable!=null && !other.transform.CompareTag("striker"))
         {
             collectable.Collect(type);
+            
+
         }
     }
 
@@ -21,6 +23,7 @@ public class Zone : MonoBehaviour
         if (collectable != null && !other.transform.CompareTag("striker"))
         {
             collectable.Collect(type);
+            
         }
     }
 }

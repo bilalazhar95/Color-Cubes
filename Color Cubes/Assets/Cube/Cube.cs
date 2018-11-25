@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour,IShootable,ICollectable
@@ -12,7 +13,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     Rigidbody thisRigidBody=null;
     Transform currentPuller = null;
     float currentPullSpeed = 0f;
-    BoxCollider boxCollider = null;
+    SphereCollider sphereCollider = null;
     Transform thisTransform = null;
     bool isBeingPulled = false;
     Player player = null;
@@ -23,7 +24,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     private void Awake()
     {
         thisRigidBody = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         thisTransform = transform;
         player = GameObject.FindObjectOfType<Player>();
     }
@@ -48,7 +49,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
 
     public void TakeShot(Vector3 shootDirection, float shootSpeed,ForceMode forceMode)
     {
-        boxCollider.isTrigger = false;
+        sphereCollider.isTrigger = false;
         thisRigidBody.isKinematic = false;
         thisRigidBody.AddForce(shootDirection.normalized * shootSpeed,ForceMode.Impulse);
 
@@ -57,7 +58,7 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     public GameObject GetPulled(Transform puller, float pullSpeed)
     {
         thisRigidBody.isKinematic = true;
-        boxCollider.isTrigger = true;
+        sphereCollider.isTrigger = true;
         isBeingPulled = true;
         currentPuller = puller;
         currentPullSpeed = pullSpeed;
@@ -68,19 +69,21 @@ public class Cube : MonoBehaviour,IShootable,ICollectable
     {
         thisRigidBody.isKinematic = true;
         isBeingPulled = false;
-        boxCollider.isTrigger = false;
+        sphereCollider.isTrigger = false;
         
     }
-
+    //TODO Camera shake settings
     public void Collect(ZoneType type)
     {
         if (compatibleZone == type)
         {
+            CameraShaker.Instance.ShakeOnce(6, 4, 0.1f, 1f);
             Destroy(gameObject);
         }
         else
         {
             // TODO  show cool effects here 
+            CameraShaker.Instance.ShakeOnce(2f, 1f, 0.1f, 0.5f);
             player.TakeDamage(damage);
             Destroy(gameObject);
         }
