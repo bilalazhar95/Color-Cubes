@@ -16,9 +16,8 @@ public class Player : MonoBehaviour,IDamageable
     [SerializeField] float pauseTimeAfterShoot = 0.5f;
 
     PlayerStates state = PlayerStates.READY_TO_PULL;
-    Puller puller = null;
+
     Shooter shooter = null;
-    PlayerRaycaster playerRaycaster = null;
     float currentHealth;
     CameraShaker cameraShaker=null;
  
@@ -27,11 +26,9 @@ public class Player : MonoBehaviour,IDamageable
 	// Use this for initialization
 	void Awake ()
     {
-        puller = GetComponent<Puller>();
         shooter = GetComponent<Shooter>();
-        playerRaycaster = GetComponent<PlayerRaycaster>();
         currentHealth = maxhealth;
-        cameraShaker = CameraShaker.Instance;
+  
 
 	}
 	
@@ -39,8 +36,6 @@ public class Player : MonoBehaviour,IDamageable
 	void Update ()
     {
         
-
-        UpdatePlayerState();
 
         //This is for debug purpose
 
@@ -57,40 +52,13 @@ public class Player : MonoBehaviour,IDamageable
 
     public void Shoot()
     {
-        if (state == PlayerStates.BUSY)
-        {
-            Debug.Log("Busy");
-        }
-        else if (state == PlayerStates.READY_TO_PULL)
-        {
-            GameObject currentTarget = playerRaycaster.CurrentTarget;
-            puller.Pull(currentTarget, pullSpeed);
-        }
-        else if (state == PlayerStates.READY_TO_SHOOT)
-        {
-            GameObject currentTarget = playerRaycaster.CurrentTarget;
-            shooter.Shoot(currentTarget, shootSpeed, shootForceMode);
-            puller.ReleaseCurrentTarget();
-            puller.Pause(pauseTimeAfterShoot);
-        }
+       
+            shooter.Shoot();
+           
+      
     }
 
-    private void UpdatePlayerState()
-    {
-        // Player state management
-        if (puller.IsPulling && !puller.HasPulledTarget && puller.PullZone.childCount>0)
-        {
-            state = PlayerStates.BUSY;
-        }
-        if (!puller.IsPulling && puller.HasPulledTarget)
-        {
-            state = PlayerStates.READY_TO_SHOOT;
-        }
-        if (!puller.IsPulling && !puller.HasPulledTarget)
-        {
-            state = PlayerStates.READY_TO_PULL;
-        }
-    }
+   
 
     public void TakeDamage(float damage)
     {

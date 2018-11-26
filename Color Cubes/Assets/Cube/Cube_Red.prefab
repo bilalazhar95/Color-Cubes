@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 135826122227262880}
   m_Layer: 0
   m_Name: Cube_Red
-  m_TagString: Untagged
+  m_TagString: hitable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61fce803df6efd42b827322b74284e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSmoothing: 0.695
   damage: 1
   compatibleZone: 0
 --- !u!135 &135826122227262880

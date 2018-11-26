@@ -37,9 +37,9 @@ public class Spawner : MonoBehaviour
         int randomTransform = Random.Range(0,spawnPositions.Length);
         Vector3 randomPosition = spawnPositions[randomTransform].position;
 
-        IShootable shootable;
-        shootable = Instantiate(shootablePrefabs[randomPrefab],randomPosition , Quaternion.identity).GetComponent<IShootable>();
-        shootable.Move(Vector3.down,randomSpeed , ForceMode.Impulse);
+        IMoveable moveable;
+        moveable = Instantiate(shootablePrefabs[randomPrefab],randomPosition , Quaternion.identity).GetComponent<IMoveable>();
+        moveable.Move(Vector3.down,randomSpeed , ForceMode.Impulse);
     
 
         
