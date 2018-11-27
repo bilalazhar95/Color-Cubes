@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] shootablePrefabs;
-
     [SerializeField] Transform[] spawnPositions = null;
     [SerializeField] float initDelay = 3f;
     [SerializeField] float shootableSpawnDelay = 2f;
@@ -38,8 +37,12 @@ public class Spawner : MonoBehaviour
         Vector3 randomPosition = spawnPositions[randomTransform].position;
 
         IMoveable moveable;
-        moveable = Instantiate(shootablePrefabs[randomPrefab],randomPosition , Quaternion.identity).GetComponent<IMoveable>();
+        Quaternion randomRotation = Quaternion.Euler(Random.Range(0,90), Random.Range(0, 90), Random.Range(0, 90));
+        moveable = Instantiate(shootablePrefabs[randomPrefab],randomPosition , randomRotation).GetComponent<IMoveable>();
         moveable.Move(Vector3.down,randomSpeed , ForceMode.Impulse);
+        Vector3 randomTorque = new Vector3(Random.Range(5, 10), Random.Range(5, 10), Random.Range(5, 10));
+        float torqueMagnitude = Random.Range(2,10);
+        moveable.Rotate(randomTorque,torqueMagnitude,ForceMode.Force);
     
 
         

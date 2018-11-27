@@ -5,6 +5,17 @@ using UnityEngine;
 public class Zone : MonoBehaviour
 {
     public ZoneType type = ZoneType.NEUTRAL;
+    [SerializeField] private Vector3 rotation = Vector3.zero;
+    [Tooltip("Angle per second")]
+    [SerializeField] private float rotationRate = 0f;
+
+
+
+
+    private void Update()
+    {
+        transform.Rotate(rotation,rotationRate * Time.deltaTime);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,4 +37,6 @@ public class Zone : MonoBehaviour
             
         }
     }
+
+  
 }

@@ -47,6 +47,11 @@ public class Cube : MonoBehaviour,IMoveable,ICollectable
         thisRigidBody.AddForce(moveDirection * speed,forceMode);
     }
 
+    public void Rotate(Vector3 torque,float magnitude ,ForceMode forcemode)
+    {
+        thisRigidBody.AddTorque(torque , forcemode);
+    }
+
 
 
 

@@ -33,7 +33,7 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-
+        laserRenderer.SetPosition(0, laserTransform.position);
         Vector3 laserEndPointInWorldSpace = laserTransform.position + laserTransform.forward * laserRange;
         laserRenderer.SetPosition(1, laserEndPointInWorldSpace);
        

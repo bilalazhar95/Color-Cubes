@@ -28,7 +28,7 @@ public class Striker : MonoBehaviour,IShootable {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("hitable")) { Destroy(gameObject, 0.2f); }
+        if (collision.transform.CompareTag("hitable")) { Destroy(gameObject, 0.1f); }
         
 
     }

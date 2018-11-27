@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RedZone
-  m_Shader: {fileID: 4800000, guid: 9b655782aa75830409bf01a7a70e31eb, type: 3}
+  m_Name: CubeGreen
+  m_Shader: {fileID: 4800000, guid: 3864b81bb2dfc1549a723148050ad495, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,12 +18,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_C08B5DA3:
-        m_Texture: {fileID: 2800000, guid: ce6fb9db43616a542aba9a4f14fee931, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_C5796969:
-        m_Texture: {fileID: 2800000, guid: 88f7c8c1c2a708f448ae38a719015cb1, type: 3}
+    - Texture2D_4E53AF58:
+        m_Texture: {fileID: 2800000, guid: a489daeb64d3fb244a889c64fdb30693, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -67,12 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1C0802CC: 1
-    - Vector1_4EDB9505: 0.5
-    - Vector1_5D12B69A: 1
-    - Vector1_79EB443B: 3
-    - Vector1_7C40B4E1: 54.25
-    - Vector1_C484B7CD: 0.88
+    - Vector1_711463E7: 0.9
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -84,7 +75,6 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -95,14 +85,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_20BA81AF: {r: 1, g: 0, b: 0, a: 0}
-    - Color_55F17BC1: {r: 1, g: 0.04397481, b: 0, a: 0}
-    - Color_5C3D0E13: {r: 5.340315, g: 0.05591953, b: 0, a: 0}
-    - Color_609FD70F: {r: 8.003097, g: 0, b: 0.15692347, a: 0}
-    - Color_8CB1AAAB: {r: 1, g: 0, b: 0, a: 0}
-    - Vector2_114DEDD8: {r: 0.25, g: 0.25, b: 0.25, a: 0}
-    - Vector2_1C2A3DD0: {r: -0.74, g: 0.06, b: 1, a: 1}
-    - Vector2_C9E7B9A7: {r: -0.12, g: 0.5, b: 0, a: 1}
-    - _Color: {r: 1, g: 0.1102941, b: 0.1102941, a: 1}
+    - Color_3AD37AB3: {r: 0, g: 0, b: 0, a: 1}
+    - Color_64DDEC54: {r: 0.0021297932, g: 1, b: 0, a: 0}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
