@@ -14,6 +14,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] float upwardsModifier = 0.1f;
     [SerializeField] ForceMode forceMode = ForceMode.Impulse;
 
+    StrikerPool strikerPool = null;
+
     private float timeToSpawnStriker = 0f;
     private GameObject currentStriker = null;
 
@@ -23,7 +25,7 @@ public class Shooter : MonoBehaviour
 
     private void Awake()
     {
-      
+        strikerPool = StrikerPool.Instance;
     }
 
     private void Start()
@@ -47,7 +49,7 @@ public class Shooter : MonoBehaviour
     public void Shoot()
     {
 
-        if (currentStriker==null) { print("no striker"); return; }
+        if (currentStriker==null) { return; }
      
         IShootable shootable = currentStriker.transform.GetComponent<IShootable>();
         if (shootable != null)
@@ -67,7 +69,11 @@ public class Shooter : MonoBehaviour
 
     private void SpawnStriker()
     {
-        currentStriker = Instantiate(strikerPrefab, shootPoint.position, Quaternion.identity);
+        //currentStriker = Instantiate(strikerPrefab, shootPoint.position, Quaternion.identity);
+        currentStriker = strikerPool.GetStrikerFromPool();
+        currentStriker.SetActive(true);
+        currentStriker.transform.position = shootPoint.position;
+        currentStriker.transform.rotation = Quaternion.identity;
         currentStriker.transform.SetParent(shootPoint);
         currentStriker.GetComponent<Rigidbody>().isKinematic = true;
 

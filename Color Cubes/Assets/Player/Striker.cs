@@ -15,7 +15,8 @@ public class Striker : MonoBehaviour,IShootable {
 
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
 		
 	}
 
@@ -28,8 +29,19 @@ public class Striker : MonoBehaviour,IShootable {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("hitable")) { Destroy(gameObject, 0.1f); }
+        if (collision.transform.CompareTag("hitable"))
+        {
+            //Destroy(gameObject, lifeTime);
+            StopAllCoroutines();
+            StartCoroutine(DisableStrikerAfterTime());
+        }
         
 
+    }
+
+    IEnumerator DisableStrikerAfterTime()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        gameObject.SetActive(false);
     }
 }

@@ -23,7 +23,6 @@ public class Zone : MonoBehaviour
     private void Awake()
     {
         thisRenderer = GetComponent<Renderer>();
-        print(thisRenderer.material.shader);
     }
 
 
