@@ -9,57 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1192326426756644}
+  m_RootGameObject: {fileID: 1008546382881354}
   m_IsPrefabAsset: 1
---- !u!1 &1192326426756644
+--- !u!1 &1008546382881354
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4365421829832104}
-  - component: {fileID: 33655362924817584}
-  - component: {fileID: 23412988141491276}
-  - component: {fileID: 54690416737952382}
-  - component: {fileID: 114723536530514262}
-  - component: {fileID: 135913146726514040}
-  m_Layer: 0
-  m_Name: CubeRed
-  m_TagString: hitable
+  - component: {fileID: 4078927285627676}
+  - component: {fileID: 33383606978994752}
+  - component: {fileID: 23073335565890640}
+  - component: {fileID: 114348442043981306}
+  - component: {fileID: 135298003094697776}
+  m_Layer: 2
+  m_Name: ZoneRed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4365421829832104
+--- !u!4 &4078927285627676
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
-  m_LocalRotation: {x: 0.10732191, y: 0.316087, z: -0.03601357, w: 0.9419522}
-  m_LocalPosition: {x: 1.69, y: 2.68, z: 0}
+  m_GameObject: {fileID: 1008546382881354}
+  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.22, y: 4.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 13, y: 37.1, z: 0}
---- !u!23 &23412988141491276
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23073335565890640
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
+  m_GameObject: {fileID: 1008546382881354}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9a79831b0782ff44090f823873fa4603, type: 2}
+  - {fileID: 2100000, guid: 54d1335cb9d9862499be3d94643aa943, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,50 +78,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33655362924817584
+--- !u!33 &33383606978994752
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
-  m_Mesh: {fileID: 4300000, guid: 4a28ead7160768f4faeb13b1df3c2a02, type: 3}
---- !u!54 &54690416737952382
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 8
-  m_CollisionDetection: 0
---- !u!114 &114723536530514262
+  m_GameObject: {fileID: 1008546382881354}
+  m_Mesh: {fileID: 4300000, guid: cd87a12e311fe4f45918f47e15a21897, type: 3}
+--- !u!114 &114348442043981306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
+  m_GameObject: {fileID: 1008546382881354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61fce803df6efd42b827322b74284e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 72de6cce22c5d3649b36139e79c52bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  compatibleZone: 0
---- !u!135 &135913146726514040
+  type: 0
+  rotation: {x: 0, y: 0, z: 0}
+  rotationRate: 0
+  defaultVertexOffset: 0.2
+  hitVertexOffset: 3
+  vertexTransitionSpeed: 0.7
+--- !u!135 &135298003094697776
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1192326426756644}
-  m_Material: {fileID: 13400000, guid: 65434016bafc37448b4b52978415c30a, type: 2}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1008546382881354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.65
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.95
+  m_Center: {x: -0.00000590086, y: 0, z: 0}

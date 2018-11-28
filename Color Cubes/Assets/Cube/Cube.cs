@@ -52,6 +52,11 @@ public class Cube : MonoBehaviour,IMoveable,ICollectable
         thisRigidBody.AddTorque(torque , forcemode);
     }
 
+    public ZoneType GetCollectableType()
+    {
+        return compatibleZone;
+    }
+
 
 
 
