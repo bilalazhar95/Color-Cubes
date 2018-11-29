@@ -74,8 +74,8 @@ public class Zone : MonoBehaviour
         {
             SetVertexOffset(-hitVertexOffset);
         }
-        
-        
+
+        StopAllCoroutines();
         StartCoroutine(SmoothlyResetVertexOffset());
     }
 

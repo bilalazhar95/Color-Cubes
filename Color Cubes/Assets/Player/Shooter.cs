@@ -25,11 +25,12 @@ public class Shooter : MonoBehaviour
 
     private void Awake()
     {
-        strikerPool = StrikerPool.Instance;
+        
     }
 
     private void Start()
     {
+        strikerPool = StrikerPool.Instance;
         if (shootPoint.childCount<0 && Time.time>=timeToSpawnStriker)
         {
             SpawnStriker();

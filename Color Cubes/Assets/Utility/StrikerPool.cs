@@ -39,6 +39,7 @@ public class StrikerPool : MonoBehaviour
             GameObject striker = Instantiate(StrikerPrefab);
             striker.SetActive(false);
             pool.Add(striker);
+            striker.transform.SetParent(transform);
         }
     }
 
@@ -54,6 +55,7 @@ public class StrikerPool : MonoBehaviour
         GameObject newStriker = Instantiate(StrikerPrefab);
         newStriker.SetActive(false);
         pool.Add(newStriker);
+        newStriker.transform.SetParent(transform);
         return newStriker;
     }
 	
